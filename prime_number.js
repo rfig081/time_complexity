@@ -17,9 +17,10 @@ function isPrime(number) {
 
   return true;
 }
-//* Best case: Constant complexity O(1)
-//* Average case: Linear complexity O(n) | Improved = O(sqrt(n))
-//* Worst case: Linear complexity O(n) | Improved = O(sqrt(n))
+//* Best case: Constant time complexity O(1)
+//* Average case: Linear time complexity O(n) | Improved = O(sqrt(n))
+//* Worst case: Linear time complexity O(n) | Improved = O(sqrt(n))
+
 console.log(
   isPrime(2),
   isPrime("abc"),

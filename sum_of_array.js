@@ -6,5 +6,6 @@ function arraySum(arr, sum = 0) {
   arr.shift();
   return arraySum(arr, sum);
 }
-//* Linear complexity  O(n)
+//* Linear time complexity  O(n)
+
 console.log(arraySum([2, 3, 5, 10, 20]));
