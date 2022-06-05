@@ -1,26 +1,34 @@
+// g(options=1) [["order"]]
+// g(options=2) [["buy", "order"], ["order", "buy"]]
+// g(options=3) 
+// g(options = 4)
+// 
+
 function getPermutations(options) {
   const permutations = [];
 
   if (options.length === 1) {
-    console.log(options);
     return [options];
   }
 
   const partialPermutations = getPermutations(options.slice(1));
+  //* [["buy", "order"], ["order", "buy"]]
 
   const firstOption = options[0];
-  console.log(firstOption);
+  //* "clean"
 
   for (let i = 0; i < partialPermutations.length; i++) {
-    const partialPermutation = partialPermutations[i];
-    console.log(partialPermutation, "pp");
+    const partialPermutation = partialPermutations[i]; //* ["order", "buy"]
 
     for (let j = 0; j <= partialPermutation.length; j++) {
-      const permutationsInFront = partialPermutation.slice(0, j);
-      const permutationsAfter = partialPermutation.slice(j);
+      const permutationsInFront = partialPermutation.slice(0, j); //* []
+      const permutationsAfter = partialPermutation.slice(j); //* ["order", "buy"]
       permutations.push(
-        permutationsInFront.concat([firstOption], permutationsAfter)
-      );
+        permutationsInFront.concat([firstOption], permutationsAfter) //* ["clean", "order", "buy"]
+      ); //* [
+      //* ["clean", "buy", "order"], ["buy", "clean", "order"], ["buy", "order", "clean"],
+      //* ["clean", "order", "buy"], ["order", "clean", "buy"], ["order", "buy", "clean"],
+      //*  ]
     }
   }
   console.log(permutations);
@@ -38,4 +46,4 @@ const todoList = [
 
 const result = getPermutations(todoList);
 
-// console.log(result);
+console.log(result);
